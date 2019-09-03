@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Fortune Teller</h1>
+        <f:view>
+            <h:form>
+                <h:outputLabel for="name" value="Name: " />
+                <h:inputText id="name" value="#{controller.name}">
+                    <f:validateRequired></f:validateRequired>
+                </h:inputText>
+                <h:message for="name" errorStyle="color:red"/>
+                <br/>           
+                <h:outputLabel for="gender" value="Gender: " />
+                <h:selectOneMenu value = "#{controller.gender}"> 
+                    <f:selectItem itemValue = "M" itemLabel = "Male" /> 
+                    <f:selectItem itemValue = "F" itemLabel = "Female" /> 
+                </h:selectOneMenu> 
+
+
+                <br/>
+                <h:outputLabel for="bloodtype" value="Blood Type: " />
+                <h:selectOneMenu value = "#{controller.bloodtype}"> 
+                    <f:selectItem itemValue = "A" itemLabel = "A" /> 
+                    <f:selectItem itemValue = "B" itemLabel = "B" /> 
+                    <f:selectItem itemValue = "O" itemLabel = "O" /> 
+                    <f:selectItem itemValue = "C" itemLabel = "AB" />                        
+                </h:selectOneMenu> 
+
+                <br/>              
+                <h:outputLabel for="birthmonth" value="Month of Birthday: " />
+                <h:selectOneMenu value = "#{controller.birthMonth}"> 
+                    <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                    <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                    <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                    <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                    <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                    <f:selectItem itemValue = "6" itemLabel = "6" /> 
+                    <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                    <f:selectItem itemValue = "8" itemLabel = "8" /> 
+                    <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                    <f:selectItem itemValue = "10" itemLabel = "10" /> 
+                    <f:selectItem itemValue = "11" itemLabel = "11" /> 
+                    <f:selectItem itemValue = "12" itemLabel = "12" /> 
+                </h:selectOneMenu> 
+
+
+
+                <br/>
+
+                <h:commandButton id="button" action="#{controller.showFortune()}"
+                                 value="Tell my fortune"/>
+            </h:form>
+        </f:view>
+
+        <h:outputLabel value="#{controller.result}" />
+
+    </h:body>
+</html>
+
