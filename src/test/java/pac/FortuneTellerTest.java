@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
  * @author Julia
  */
 public class FortuneTellerTest {
+
     private static final Logger LOG = Logger.getLogger(FortuneTeller.class.getName());
 
     FortuneTeller fortuneTeller = FortuneTeller.getInstance();
@@ -24,18 +25,46 @@ public class FortuneTellerTest {
         "you are very responsible, ", "you have leadership, ", "you are so careful, ",
         "you are attractive, ", "you are quite mystery, ", "you like freedom, "};
 
+    private final String[][] JOBM = {{"librarian", "archeitect", "accounting"}, {"astronomer", "sales", "diplomatist"},
+    {"teacher", "cook", "doctor"}, {"explorer", "judge", "researcher"}};
+    private final String[][] JOBF = {{"civil servant", "designer", "analyst"}, {"psychologists", "writer", "actor"},
+    {"secretary", "nurse", "freelancer"}, {"entrepreneur", "programmer", "journalist"}};
+
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
     public void testShowCharacter() {
-        for(int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             Random ran = new Random();
             int index = ran.nextInt(12);
-            String character = fortuneTeller.showCharacter(index+1);
+            int birthMonth = index + 1;
+            String character = fortuneTeller.showCharacter(birthMonth);
             String expect = CHARACTER[index];
             LOG.info("Testing the method showCharacter with: " + character + " and " + expect);
-            assertEquals(character, expect);            
+            assertEquals(character, expect);
+        }
+    }
+
+    @Test
+    public void testShowJob() {
+        for (int i = 0; i < 10; i++) {
+            Random ran = new Random();
+            int indexM = ran.nextInt(12);
+            int birthMonth = indexM + 1;
+            int index1 = (birthMonth - 1) % 4;
+            int index = 0;
+            int index2 = index % 2;
+            String jobM = fortuneTeller.showJob(birthMonth, 'M');
+            String expectM = JOBM[index1][index2];            
+            LOG.info("Testing the method showJob with: " + jobM + " and " + expectM);
+            assertEquals(jobM, expectM);
+            index++;
+            String jobF = fortuneTeller.showJob(birthMonth, 'F');
+            String expectF = JOBF[index1][index2];            
+            LOG.info("Testing the method showJob with: " + jobF + " and " + expectF);
+            assertEquals(jobF, expectF);
+            index++;
         }
     }
 }
