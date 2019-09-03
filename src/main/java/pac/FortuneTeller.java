@@ -14,10 +14,17 @@ public class FortuneTeller {
     {"teacher", "cook", "doctor"}, {"explorer", "judge", "researcher"}};
     private final String[][] JOBF = {{"civil servant", "designer", "analyst"}, {"psychologists", "writer", "actor"},
     {"secretary", "nurse", "freelancer"}, {"entrepreneur", "programmer", "journalist"}};
-    private final String[] HEALTHO = {"keep on a diet", "ensure protein intake", "develop a good sleep routine"};
-    private final String[] HEALTHA = {"eat less meat", "eat more vegetables", "prevent catch cold"};
-    private final String[] HEALTHB = {"practice tai chi", "eat a little mutton", "eat a little hazel and pine nut"};
-    private final String[] HEALTHC = {"give up smoking", "stop drinking", "prevent the intake of allergenic foods"};
+    private final String[] HEALTHO = 
+    {"keep on a diet", "ensure protein intake", "develop a good sleep routine", "practice swimming", "enjoy the sunshine"};
+    private final String[] HEALTHA = 
+    {"eat less meat", "eat more vegetables", "prevent catch cold", "drink some fruit tea", "practice yoga"};
+    private final String[] HEALTHB = 
+    {"practice tai chi", "eat a little mutton", "eat a little hazel and pine nut", "drink some licorice tea", "eat less chicken"};
+    private final String[] HEALTHC = 
+    {"give up smoking", "stop drinking", "prevent the intake of allergenic foods", "take some vitamin C", "have some outdoor activites"};
+    
+    private int jobindex = 0;
+    private int healthindex = 0;
 
     private FortuneTeller() {
     }
@@ -49,23 +56,19 @@ public class FortuneTeller {
     public String showJob(int birthMonth, char gender) {
         int index1 = (birthMonth - 1) % 4;
         String job = "";
-//        Random ran = new Random();
-        int index = 0;
-        int index2 = index % 2;
+        int index2 = jobindex % 3;
         if (gender == 'M') {
-//            index++;
             job = JOBM[index1][index2];
         } else {
-//            index++;
             job = JOBF[index1][index2];
         }
-        index++;
+        jobindex++;
         return job;
     }
 
     public String showHealth(char bloodtype) {
-        int index = 0;
-        int index2 = index % 2;
+//        int index = 0;
+        int index2 = healthindex % 5;
 //        Random ran = new Random();
         String health = "";
 //        int index = ran.nextInt(3);
@@ -83,7 +86,7 @@ public class FortuneTeller {
                 health = HEALTHC[index2];
                 break;
         }
-        index++;
+        healthindex++;
         return health;
     }
 
