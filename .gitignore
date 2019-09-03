@@ -1,1 +1,12 @@
-/target/
+/target/*
+!/target/site
+/target/site/*
+!/target/site/jacoco
+/target/site/jacoco/*
+!/target/site/jacoco/index.html
+
+!/target/surefire-reports
+/target/surefire-reports/*
+!/target/surefire-reports/testng-junit-results
+/target/surefire-reports/testng-junit-results/*
+!/target/surefire-reports/testng-junit-results/index.html
