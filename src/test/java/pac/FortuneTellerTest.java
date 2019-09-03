@@ -30,6 +30,11 @@ public class FortuneTellerTest {
     private final String[][] JOBF = {{"civil servant", "designer", "analyst"}, {"psychologists", "writer", "actor"},
     {"secretary", "nurse", "freelancer"}, {"entrepreneur", "programmer", "journalist"}};
 
+    private final String[] HEALTHO = {"keep on a diet", "ensure protein intake", "develop a good sleep routine"};
+    private final String[] HEALTHA = {"eat less meat", "eat more vegetables", "prevent catch cold"};
+    private final String[] HEALTHB = {"practice tai chi", "eat a little mutton", "eat a little hazel and pine nut"};
+    private final String[] HEALTHC = {"give up smoking", "stop drinking", "prevent the intake of allergenic foods"};
+
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
@@ -55,16 +60,51 @@ public class FortuneTellerTest {
             int index1 = (birthMonth - 1) % 4;
             int index = 0;
             int index2 = index % 2;
+            
             String jobM = fortuneTeller.showJob(birthMonth, 'M');
-            String expectM = JOBM[index1][index2];            
+            String expectM = JOBM[index1][index2];
             LOG.info("Testing the method showJob with: " + jobM + " and " + expectM);
             assertEquals(jobM, expectM);
             index++;
+            
             String jobF = fortuneTeller.showJob(birthMonth, 'F');
-            String expectF = JOBF[index1][index2];            
+            String expectF = JOBF[index1][index2];
             LOG.info("Testing the method showJob with: " + jobF + " and " + expectF);
             assertEquals(jobF, expectF);
             index++;
+        }
+    }
+
+    @Test
+    public void testShowHealth() {
+        for (int i = 0; i < 10; i++) {
+            int index = 0;
+            int index2 = index % 2;
+            
+            String healthA = fortuneTeller.showHealth('A');
+            String expectA = HEALTHA[index2];
+            LOG.info("Testing the method health with: " + healthA + " and " + expectA);
+            assertEquals(healthA, expectA);
+            index++;
+            
+            String healthB = fortuneTeller.showHealth('B');
+            String expectB = HEALTHB[index2];
+            LOG.info("Testing the method health with: " + healthB + " and " + expectB);
+            assertEquals(healthB, expectB);
+            index++;
+            
+            String healthAB = fortuneTeller.showHealth('C');
+            String expectAB = HEALTHC[index2];
+            LOG.info("Testing the method health with: " + healthAB + " and " + expectAB);
+            assertEquals(healthAB, expectAB);
+            index++;
+            
+            String healthO = fortuneTeller.showHealth('O');
+            String expectO = HEALTHO[index2];
+            LOG.info("Testing the method health with: " + healthO + " and " + expectO);
+            assertEquals(healthO, expectO);
+            index++;
+
         }
     }
 }

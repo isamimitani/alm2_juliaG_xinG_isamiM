@@ -64,23 +64,26 @@ public class FortuneTeller {
     }
 
     public String showHealth(char bloodtype) {
-        Random ran = new Random();
+        int index = 0;
+        int index2 = index % 2;
+//        Random ran = new Random();
         String health = "";
-        int index = ran.nextInt(3);
+//        int index = ran.nextInt(3);
         switch (bloodtype) {
             case 'A':
-                health = HEALTHA[index];
+                health = HEALTHA[index2];
                 break;
             case 'B':
-                health = HEALTHB[index];
+                health = HEALTHB[index2];
                 break;
             case 'O':
-                health = HEALTHO[index];
+                health = HEALTHO[index2];
                 break;
             default:
-                health = HEALTHC[index];
+                health = HEALTHC[index2];
                 break;
         }
+        index++;
         return health;
     }
 
