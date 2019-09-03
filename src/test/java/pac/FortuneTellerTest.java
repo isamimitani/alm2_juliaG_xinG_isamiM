@@ -60,13 +60,13 @@ public class FortuneTellerTest {
             int index1 = (birthMonth - 1) % 4;
             int index = 0;
             int index2 = index % 2;
-            
+
             String jobM = fortuneTeller.showJob(birthMonth, 'M');
             String expectM = JOBM[index1][index2];
             LOG.info("Testing the method showJob with: " + jobM + " and " + expectM);
             assertEquals(jobM, expectM);
             index++;
-            
+
             String jobF = fortuneTeller.showJob(birthMonth, 'F');
             String expectF = JOBF[index1][index2];
             LOG.info("Testing the method showJob with: " + jobF + " and " + expectF);
@@ -80,25 +80,25 @@ public class FortuneTellerTest {
         for (int i = 0; i < 10; i++) {
             int index = 0;
             int index2 = index % 2;
-            
+
             String healthA = fortuneTeller.showHealth('A');
             String expectA = HEALTHA[index2];
             LOG.info("Testing the method health with: " + healthA + " and " + expectA);
             assertEquals(healthA, expectA);
             index++;
-            
+
             String healthB = fortuneTeller.showHealth('B');
             String expectB = HEALTHB[index2];
             LOG.info("Testing the method health with: " + healthB + " and " + expectB);
             assertEquals(healthB, expectB);
             index++;
-            
+
             String healthAB = fortuneTeller.showHealth('C');
             String expectAB = HEALTHC[index2];
             LOG.info("Testing the method health with: " + healthAB + " and " + expectAB);
             assertEquals(healthAB, expectAB);
             index++;
-            
+
             String healthO = fortuneTeller.showHealth('O');
             String expectO = HEALTHO[index2];
             LOG.info("Testing the method health with: " + healthO + " and " + expectO);
@@ -106,5 +106,10 @@ public class FortuneTellerTest {
             index++;
 
         }
+    }
+
+    @Test
+    public void testTellFortune() {
+        
     }
 }
