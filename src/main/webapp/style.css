@@ -1,0 +1,29 @@
+.content {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+
+}
+
+.label{
+    width:150px;
+    display:inline-block
+}
+.selection{
+    width:150px;
+    display:inline-block
+}
+
+h1{
+    text-align: center;
+}
+
+input{
+    width:  200px;
+}
+
+ul{
+    list-style-type: none;
+}
+

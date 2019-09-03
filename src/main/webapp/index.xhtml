@@ -5,60 +5,72 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+        <link rel="stylesheet" href="style.css"></link>
     </h:head>
     <h:body>
         <h1>Fortune Teller</h1>
-        <f:view>
-            <h:form>
-                <h:outputLabel for="name" value="Name: " />
-                <h:inputText id="name" value="#{controller.name}">
-                    <f:validateRequired></f:validateRequired>
-                </h:inputText>
-                <h:message for="name" errorStyle="color:red"/>
-                <br/>           
-                <h:outputLabel for="gender" value="Gender: " />
-                <h:selectOneMenu value = "#{controller.gender}"> 
-                    <f:selectItem itemValue = "M" itemLabel = "Male" /> 
-                    <f:selectItem itemValue = "F" itemLabel = "Female" /> 
-                </h:selectOneMenu> 
 
-
-                <br/>
-                <h:outputLabel for="bloodtype" value="Blood Type: " />
-                <h:selectOneMenu value = "#{controller.bloodtype}"> 
-                    <f:selectItem itemValue = "A" itemLabel = "A" /> 
-                    <f:selectItem itemValue = "B" itemLabel = "B" /> 
-                    <f:selectItem itemValue = "O" itemLabel = "O" /> 
-                    <f:selectItem itemValue = "C" itemLabel = "AB" />                        
-                </h:selectOneMenu> 
-
-                <br/>              
-                <h:outputLabel for="birthmonth" value="Month of Birthday: " />
-                <h:selectOneMenu value = "#{controller.birthMonth}"> 
-                    <f:selectItem itemValue = "1" itemLabel = "1" /> 
-                    <f:selectItem itemValue = "2" itemLabel = "2" /> 
-                    <f:selectItem itemValue = "3" itemLabel = "3" /> 
-                    <f:selectItem itemValue = "4" itemLabel = "4" /> 
-                    <f:selectItem itemValue = "5" itemLabel = "5" /> 
-                    <f:selectItem itemValue = "6" itemLabel = "6" /> 
-                    <f:selectItem itemValue = "7" itemLabel = "7" /> 
-                    <f:selectItem itemValue = "8" itemLabel = "8" /> 
-                    <f:selectItem itemValue = "9" itemLabel = "9" /> 
-                    <f:selectItem itemValue = "10" itemLabel = "10" /> 
-                    <f:selectItem itemValue = "11" itemLabel = "11" /> 
-                    <f:selectItem itemValue = "12" itemLabel = "12" /> 
-                </h:selectOneMenu> 
-
-
+        <h:form>
+            <ul class="content">
+                <li>
+                    <h:outputLabel for="name" value="Name: " class="label" />
+                    <h:inputText id="name" value="#{controller.name}" class="selection">
+                        <f:validateRequired></f:validateRequired>
+                    </h:inputText>
+                    <h:message for="name" errorStyle="color:red"/>
+                </li>
+                <li >
+                    <br/>           
+                    <h:outputLabel for="gender" value="Gender: " class="label"/>
+                    <h:selectOneMenu value = "#{controller.gender}" class="selection"> 
+                        <f:selectItem itemValue = "M" itemLabel = "Male" /> 
+                        <f:selectItem itemValue = "F" itemLabel = "Female" /> 
+                    </h:selectOneMenu> 
+                </li>
 
                 <br/>
+                <li >
+                    <h:outputLabel for="bloodtype" value="Blood Type: " class="label"/>
+                    <h:selectOneMenu value = "#{controller.bloodtype}" class="selection"> 
+                        <f:selectItem itemValue = "A" itemLabel = "A" /> 
+                        <f:selectItem itemValue = "B" itemLabel = "B" /> 
+                        <f:selectItem itemValue = "O" itemLabel = "O" /> 
+                        <f:selectItem itemValue = "C" itemLabel = "AB" />                        
+                    </h:selectOneMenu> 
+                </li>
+                <br/> 
+                <li >
+                    <h:outputLabel for="birthmonth" value="Month of Birthday: " class="label"/>
+                    <h:selectOneMenu value = "#{controller.birthMonth}" class="selection"> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                        <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                        <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                        <f:selectItem itemValue = "6" itemLabel = "6" /> 
+                        <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                        <f:selectItem itemValue = "8" itemLabel = "8" /> 
+                        <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                        <f:selectItem itemValue = "10" itemLabel = "10" /> 
+                        <f:selectItem itemValue = "11" itemLabel = "11" /> 
+                        <f:selectItem itemValue = "12" itemLabel = "12" /> 
+                    </h:selectOneMenu> 
+                </li>
 
-                <h:commandButton id="button" action="#{controller.showFortune()}"
-                                 value="Tell my fortune"/>
-            </h:form>
-        </f:view>
+                <li>
+                    <br/>
 
-        <h:outputLabel value="#{controller.result}" />
+                    <h:commandButton id="button" action="#{controller.showFortune()}"
+                                     value="Tell my fortune"/>
+
+                </li>
+                <br/>
+                <li>
+
+                    <h:outputLabel value="#{controller.result}" />
+                </li>
+            </ul>
+        </h:form>
 
     </h:body>
 </html>
