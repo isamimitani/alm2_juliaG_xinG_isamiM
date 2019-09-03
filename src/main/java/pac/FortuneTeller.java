@@ -48,33 +48,42 @@ public class FortuneTeller {
 
     public String showJob(int birthMonth, char gender) {
         int index1 = (birthMonth - 1) % 4;
-        Random ran = new Random();
-        int index2 = ran.nextInt(3);
+        String job = "";
+//        Random ran = new Random();
+        int index = 0;
+        int index2 = index % 2;
         if (gender == 'M') {
-            return JOBM[index1][index2];
+//            index++;
+            job = JOBM[index1][index2];
         } else {
-            return JOBF[index1][index2];
+//            index++;
+            job = JOBF[index1][index2];
         }
+        index++;
+        return job;
     }
 
     public String showHealth(char bloodtype) {
-        Random ran = new Random();
+        int index = 0;
+        int index2 = index % 2;
+//        Random ran = new Random();
         String health = "";
-        int index = ran.nextInt(3);
+//        int index = ran.nextInt(3);
         switch (bloodtype) {
             case 'A':
-                health = HEALTHA[index];
+                health = HEALTHA[index2];
                 break;
             case 'B':
-                health = HEALTHB[index];
+                health = HEALTHB[index2];
                 break;
             case 'O':
-                health = HEALTHO[index];
+                health = HEALTHO[index2];
                 break;
             default:
-                health = HEALTHC[index];
+                health = HEALTHC[index2];
                 break;
         }
+        index++;
         return health;
     }
 
