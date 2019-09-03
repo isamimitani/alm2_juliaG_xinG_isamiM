@@ -110,15 +110,22 @@ public class FortuneTellerTest {
 
     @Test
     public void testTellFortune() {
-        char[] blood = {'A', 'B', 'C','O'};
-        int[] month = {1,2,3,4,5,6,7,8,9,10,11,12};
         Random ran = new Random();
-        int ranName = ran.nextInt();
-        String name = "Test-" + ranName;
-        String result = fortuneTeller.tellFortune(name, 'F', 'O', 12);
-        int index = result.indexOf(",");
-        String expect = "Hi " + name + result.substring(index);
+        char[] gender = {'F', 'M'};
+        char[] blood = {'A', 'B', 'C', 'O'};
+        int[] month = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        for (int i = 10; i < 10; i++) {
+            int genderindex = ran.nextInt(2);
+            int bloodindex = ran.nextInt(4);
+            int monthindex = ran.nextInt(12);
+            int ranName = ran.nextInt();
+            String name = "Test-" + ranName;
+            String result = fortuneTeller.tellFortune(name, gender[genderindex], blood[bloodindex], month[monthindex]);
+            int index = result.indexOf(",");
+            String expect = "Hi " + name + result.substring(index);
             LOG.info("Testing the method tell fortune with: " + result + " and " + expect);
             assertEquals(result, expect);
+
+        }
     }
 }
