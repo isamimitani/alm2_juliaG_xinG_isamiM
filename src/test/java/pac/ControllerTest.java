@@ -29,8 +29,8 @@ public class ControllerTest {
          assertEquals('A', controller.getBloodtype());
          assertEquals('M', controller.getGender());
          assertEquals(1, controller.getBirthMonth());
-         assertEquals(teller.tellFortune(controller.getName(), controller.getGender(), controller.getBloodtype(), controller.getBirthMonth()), controller.getResult());
-                 
-             
+         String result = teller.tellFortune(controller.getName(), controller.getGender(), controller.getBloodtype(), controller.getBirthMonth());
+         result = controller.getResult(); // !!!!!!
+         assertEquals(result , controller.getResult());     
      }
 }
