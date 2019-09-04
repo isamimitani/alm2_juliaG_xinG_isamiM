@@ -23,8 +23,6 @@ public class FortuneTeller {
     private final String[] HEALTHC = 
     {"give up smoking", "stop drinking", "prevent the intake of allergenic foods", "take some vitamin C", "have some outdoor activites"};
     
-    private int jobindex = 0;
-    private int healthindex = 0;
 
     private FortuneTeller() {
     }
@@ -40,10 +38,10 @@ public class FortuneTeller {
     //0      1       2      3
     public String tellFortune(String name, char gender, char bloodtype, int birthMonth) {
         String character = showCharacter(birthMonth);
-        String job = showJob(birthMonth, gender);
-        String health = showHealth(bloodtype);
+        String job = showJob(name, birthMonth, gender);
+        String health = showHealth(name, birthMonth, bloodtype);
 
-        String result = "Hi " + name + ", " + character + "and you will be successful in the job about " + job
+        String result = "Hi " + name.trim() + ", " + character + "and you will be successful in the job about " + job
                 + ". Recently, you need to " + health + ". Good luck!";
 
         return result;
@@ -53,7 +51,8 @@ public class FortuneTeller {
         return CHARACTER[birthMonth - 1];
     }
 
-    public String showJob(int birthMonth, char gender) {
+    public String showJob(String name, int birthMonth, char gender) {
+        int jobindex = name.length();
         int index1 = (birthMonth - 1) % 4;
         String job = "";
         int index2 = jobindex % 3;
@@ -62,16 +61,13 @@ public class FortuneTeller {
         } else {
             job = JOBF[index1][index2];
         }
-        jobindex++;
         return job;
     }
 
-    public String showHealth(char bloodtype) {
-//        int index = 0;
+    public String showHealth(String name, int birthMonth, char bloodtype) {
+        int healthindex = name.length() + birthMonth;
         int index2 = healthindex % 5;
-//        Random ran = new Random();
         String health = "";
-//        int index = ran.nextInt(3);
         switch (bloodtype) {
             case 'A':
                 health = HEALTHA[index2];
@@ -86,7 +82,6 @@ public class FortuneTeller {
                 health = HEALTHC[index2];
                 break;
         }
-        healthindex++;
         return health;
     }
 
